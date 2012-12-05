@@ -1,7 +1,7 @@
 {
     "name": "microbench",
     "version": "0.0.1",
-    "description": "Node.js microbenchmark tests & framework.",
+    "description": "Node.js microbenchmark tests & framework",
     "keywords": [
         "utilities",
         "utils",
@@ -20,14 +20,11 @@
     "bin": {
         "microbench": "./bin/microbench"
     },
-    "directories": {
-        "doc": "./doc" 
-    },
     "engines" : {
         "node": ">=0.6"
     },
     "license": "MIT",
-    "devDependencies": {
+    "dependencies": {
         "expose": "*",
         "cli-table": "*",
         "colors": "*",
