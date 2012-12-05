@@ -96,7 +96,7 @@ microbench -b /home/boden/projects/js/benchmarks -u long
 
 By default `microbench` uses a [cli-table](https://github.com/LearnBoost/cli-table)
 to display output:
-[![console output](images/term.png)]
+[![console output](https://github.com/bodenr/microbench/blob/master/images/term.png)]
 
 You can ask it to archive your bench results in markdown format using the
 `-a` option. For example to run all benchmark js files under `./benchmarks`
