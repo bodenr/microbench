@@ -1,0 +1,37 @@
+{
+    "name": "microbench",
+    "version": "0.0.1",
+    "description": "Node.js microbenchmark tests & framework.",
+    "keywords": [
+        "utilities",
+        "utils",
+        "tools",
+        "benchmark"
+    ],
+    "author": "Boden Russell <bodensemail@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/bodenr/microbench.git"
+    },
+    "main": "index",
+    "engines": {
+        "node": "*"
+    },
+    "bin": {
+        "microbench": "./bin/microbench"
+    },
+    "directories": {
+        "doc": "./doc" 
+    },
+    "engines" : {
+        "node": ">=0.6"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "expose": "*",
+        "cli-table": "*",
+        "colors": "*",
+        "progress": "*",
+        "commander": "*"
+    }
+}

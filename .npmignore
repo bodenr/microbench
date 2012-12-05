@@ -1,0 +1,7 @@
+.git*
+node_modules/
+.settings
+.project
+.travis.yml
+.npmignore
+images/

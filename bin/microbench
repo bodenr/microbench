@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+var program = require('commander'),
+    microbench = require('..'),
+    expose = require('expose'),
+    path = require('path'),
+    version = require('../package.json').version,
+    greps, ungreps,
+    benchmarks = path.resolve('./benchmarks'),
+    results = path.resolve('./results');
+
+microbench.usePlugin('clitable');
+
+function optBenchmarks(val) {
+    benchmarks = val || benchmarks;
+};
+
+function optArchive(val) {
+    results = val || results;
+    microbench.usePlugin('markdown', results);
+};
+
+function optGrep(val) {
+    if (!greps) {
+        greps = [];
+    }
+    greps.push(val);
+};
+
+function optUngrep(val) {
+    if (!greps) {
+        ungreps = [];
+    }
+    ungreps.push(val);
+};
+
+program
+    .version(version)
+    .option('-b, --benchmarks <path>', 'directory containing benchmark js files [./benchmarks]', optBenchmarks)
+    .option('-a, --archive [path]', 'archive results in markdown format [./results]', optArchive)
+    .option('-g, --grep <pattern>', 'select benchmarks by name or pattern', optGrep)
+    .option('-u, --ungrep <pattern>', 'unselect benchmarks by name or pattern', optUngrep)
+    .parse(process.argv);
+
+if (program.archive && !microbench.plugins('markdown').active) {
+    optArchive(null);
+}
+
+expose({targets: benchmarks, 
+    grep: greps,
+    ungrep: ungreps
+});
+
