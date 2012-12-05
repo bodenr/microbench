@@ -24,7 +24,7 @@ further divulgence.
 ## Results
 
 A sample of microbenchmark results can be found under the
-[results](results/) directory.
+[results](https://github.com/bodenr/microbench/tree/master/results) directory.
 
 ## Installation via git repo
 
