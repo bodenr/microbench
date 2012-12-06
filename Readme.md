@@ -58,7 +58,7 @@ cd node_modules/microbench
 
 ## The microbench command
 
-The module contains a simple `microbench` binary to run benchmarks  
+The module contains a simple `microbench` binary to run benchmarks 
 which can be found under the `/bin` directory of the module.
 
 It supports the following options:
