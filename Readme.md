@@ -73,6 +73,8 @@ It supports the following options:
     -a, --archive [path]     archive results in markdown format [./results]
     -g, --grep <pattern>     select benchmarks by name or pattern
     -u, --ungrep <pattern>   unselect benchmarks by name or pattern
+    -o, --only <pattern>     only run categories who's name includes the pattern
+    -s, --skip <pattern>     skip categories who's name includes the pattern
 ```
 
 Some examples...
@@ -92,6 +94,12 @@ Run all benchmark js files which don't contain `long` in the name found
 under `/home/boden/projects/js/benchmarks`:
 ```
 microbench -b /home/boden/projects/js/benchmarks -u long
+```
+
+Run all benchmark js file which contain `type` in the filename and
+who's category contains the string `prototype`:
+```
+microbench -g type -o prototype
 ```
 
 By default `microbench` uses a [cli-table](https://github.com/LearnBoost/cli-table)

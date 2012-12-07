@@ -5,7 +5,7 @@ var program = require('commander'),
     expose = require('expose'),
     path = require('path'),
     version = require('../package.json').version,
-    greps, ungreps,
+    greps, ungreps, only, skip,
     benchmarks = path.resolve('./benchmarks'),
     results = path.resolve('./results');
 
@@ -34,12 +34,30 @@ function optUngrep(val) {
     ungreps.push(val);
 };
 
+function optOnly(val) {
+    if (!only) {
+        only = [];
+    }
+    only.push(val);
+    microbench.global('only', only);
+};
+
+function optSkip(val) {
+    if (!skip) {
+        skip = [];
+    }
+    skip.push(val);
+    microbench.global('skip', skip);
+};
+
 program
     .version(version)
     .option('-b, --benchmarks <path>', 'directory containing benchmark js files [./benchmarks]', optBenchmarks)
     .option('-a, --archive [path]', 'archive results in markdown format [./results]', optArchive)
     .option('-g, --grep <pattern>', 'select benchmarks by name or pattern', optGrep)
     .option('-u, --ungrep <pattern>', 'unselect benchmarks by name or pattern', optUngrep)
+    .option('-o, --only <pattern>', 'only run categories who\'s name includes the pattern', optOnly)
+    .option('-s, --skip <pattern>', 'skip categories who\'s name includes the pattern', optSkip)
     .parse(process.argv);
 
 if (program.archive && !microbench.plugins('markdown').active) {
